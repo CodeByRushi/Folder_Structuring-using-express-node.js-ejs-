@@ -1,0 +1,31 @@
+-npm init ==> to create package.json::
+-create folders ::
+	routes
+	controllers
+	config
+	models
+	views
+	
+-npm install express::
+-fire up the express server::
+	const express = require('express');
+	const app = express();
+	const port = 8000;// When we deploy the app on production its port should be 80
+
+	app.listen(port, function(err){
+	    if(err){
+		console.log(`There is an error in running the server`);
+		return;
+	    }
+	    console.log(`Server is running fine on port ${port}`);
+
+	});
+-Now, get rid of firing the server. So go to package.json 
+	=> under script => add "start" key and make its value as "nodemon index.js"
+	=> So now onwards just write "npm start" on terminal to fire up the server.
+	
+-Now intialise git 
+	=>git init
+-add gitignore file to ignore node_modules folder as this folder makes lot of weightage in space. Then stage and commit everything.
+	
+
