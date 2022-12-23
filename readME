@@ -28,4 +28,59 @@
 	=>git init
 -add gitignore file to ignore node_modules folder as this folder makes lot of weightage in space. Then stage and commit everything.
 	
+-setup the routes::
+	- require express in it.
+	- then take router = express.Router()
+	- then export the router(to be accessible from our app)
+- require the router in app.
+- use middleware to set if there is any request url start with '/' then go to router::
+	const router = require('./routes/index')
+	app.use('/',router);//use express router
+- once you get into routes then write HTTP request methods. Once we identified the URL then we have to call appropriate controller function.
+	router.get('/',controller.home);
+	
+-require the controller in routes file
+	const controller = require('../controllers/index');
+	
+	
+Check the example ::
+main app::
+const express = require('express');
+const app = express();
+const port = 8000;// When we deploy the app on production its port should be 80
+const router = require('./routes/index')
 
+//use express router
+app.use('/',router);
+
+app.listen(port, function(err){
+    if(err){
+        console.log(`There is an error in running the server`);
+        return;
+    }
+    console.log(`Server is running fine on port ${port}`);
+
+})
+--------------------
+
+routes ->index.js
+
+const express = require('express');
+const { appendFile } = require('fs');
+const controller = require('../controllers/index');
+
+//router helps us to separate routes and controller
+const router = express.Router();
+
+// console.log("router loaded");
+router.get('/',controller.home);
+
+module.exports = router;//external file can use it
+
+-----------------------------------
+controller->index.js
+
+module.exports.home=function(req,res){
+    res.end("<h1>Hi from server</h1>")
+}
+-------------------------------
