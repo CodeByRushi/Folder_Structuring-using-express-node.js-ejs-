@@ -84,3 +84,9 @@ module.exports.home=function(req,res){
     res.end("<h1>Hi from server</h1>")
 }
 -------------------------------
+- we can add multiple routes and controllers 
+	- we have to make necessary changes in each routes file and link it with controller file.
+- install ejs 
+	set view engines as ejs.
+	Set path for views.
+
