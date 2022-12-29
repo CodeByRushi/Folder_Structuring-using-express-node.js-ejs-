@@ -1,7 +1,7 @@
 {
   "name": "codeial",
   "version": "1.0.0",
-  "description": "This social media web app",
+  "description": "This is overview of folder-Structuring in express",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
